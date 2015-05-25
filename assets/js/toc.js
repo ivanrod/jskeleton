@@ -1,3 +1,5 @@
+'use strict';
+
 (function($) {
   /**
    * Custom TOC to Jskeleton DOC
@@ -6,30 +8,30 @@
   $.fn.toc = function(options) {
     var settings = {
       submenu: options.submenu,
-      asideActiveId: options.asideActive || "active-menu-li",
+      asideActiveId: options.asideActive || 'active-menu-li',
       asideClasses: {
-        ul: options.asideUl || "",
-        li: options.asideLi || "aside-subnav__item",
-        a: options.asideA || "class-link-aside"
+        ul: options.asideUl || '',
+        li: options.asideLi || 'aside-subnav__item',
+        a: options.asideA || 'class-link-aside'
       },
       textClasses: {
-        ul: options.textUl || "",
-        li: options.textLi || "",
-        a: options.textA || "class__link--index"
+        ul: options.textUl || '',
+        li: options.textLi || '',
+        a: options.textA || 'class__link--index'
       },
     },
-    asideUl = document.createElement("ul"),
+    asideUl = document.createElement('ul'),
     textUl,
     li,
     anchor;
 
   $.each(settings.submenu, function(key,value){
-      if (typeof value === "string"){
+      if (typeof value === 'string'){
         createLi(key, value, asideUl, settings.asideClasses);
       }else{
         createLi(key, value[0], asideUl, settings.asideClasses);
 
-        textUl = document.createElement("ul");
+        textUl = document.createElement('ul');
 
         $.each(value[1], function(textKey,textValue){
             createLi(textKey, textValue, textUl, settings.textClasses);
@@ -47,10 +49,10 @@
    * @param  {Object} classes CSS classes
    */
   function createLi(html, href, ul, classes){
-      li = document.createElement("li");
-      anchor = document.createElement("a");
+      li = document.createElement('li');
+      anchor = document.createElement('a');
 
-      anchor.setAttribute("href", href);
+      anchor.setAttribute('href', href);
       anchor.innerHTML = html;
 
       asideUl.className = classes.ul;
@@ -60,8 +62,8 @@
       li.appendChild(anchor);
 
       ul.appendChild(li);
-  };
+  }
 
   };
 
-})(jQuery)
+})(jQuery);

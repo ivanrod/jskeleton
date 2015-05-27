@@ -1,5 +1,5 @@
 ---
 layout: guide
 title:  "Contributing"
-aside_order: 4
+aside_order: 15
 ---
